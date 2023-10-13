@@ -1,7 +1,13 @@
 <% if user_signed_in? %> 
- <div> Welcome <%= current_user.email %> </div> 
-    <h1>Hello <%= current_user.email%>!</h1>
+ <div> 
+  <h3>Welcome <%= current_user.email.split("@")[0] %></h3>
   <%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
+   </div> 
+  <br/>
+  <h2>Articles </h2> <%= link_to 'Create Article',new_article_path %>
+  <% for article in @articles %>
+    <div><%= article.title%> ---  <%= link_to 'View',article_path(article) %></div>
+  <% end %>
 <% else %>
-  <%= button_to "Sign in", new_user_session_path %> 
+  <%= button_to "Sign in", new_user_session_path,method: :get %> 
 <% end %>

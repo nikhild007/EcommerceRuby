@@ -1,0 +1,21 @@
+    Title : <%= @article.title %>
+    <br/>
+    Description : <%= @article.body%>
+    <br/>
+
+
+    <br/>
+
+    Existing Comments : 
+    <%= render @article.comments%>
+
+    <h2>Add a comment:</h2>
+    <%= form_with(model: [@article, Comment.new(user: current_user)],url: article_comments_path(@article)) do |form| %>
+    <p>
+        <%= form.label :body %><br>
+        <%= form.text_area :body %>
+    </p>
+    <p>
+        <%= form.submit 'Add Comment'%>
+    </p>
+    <% end %>

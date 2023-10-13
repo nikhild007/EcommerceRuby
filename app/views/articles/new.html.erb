@@ -1,0 +1,19 @@
+<h1>New Article</h1>
+<%= form_with(model: @article, url: articles_path) do |form| %>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </div>
+  <%= @article.errors[:title][0]%>
+  
+  <div>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </div>
+
+  <br/><br/>
+    <%= @article.errors.full_messages_for(:body)[0]%>
+  <div>
+    <%= form.submit "Create Article" %>
+  </div>
+<% end %>
