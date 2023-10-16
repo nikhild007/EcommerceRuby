@@ -2,6 +2,7 @@ class ArticlesController < ApplicationController
     before_action :authenticate_user!, except: [:index, :show]
 
     def index
+        @articles = current_user.articles
     end
 
     def new

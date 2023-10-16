@@ -4,7 +4,7 @@
   <%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
    </div> 
   <br/>
-  <h2>Articles </h2> <%= link_to 'Create Article',new_article_path %>
+  <h2>Articles --- <%= link_to 'My Articles',user_articles_path(current_user) %></h2> <%= link_to 'Create Article',new_article_path %>
   <% for article in @articles %>
     <div><%= article.title%> ---  <%= link_to 'View',article_path(article) %></div>
   <% end %>
