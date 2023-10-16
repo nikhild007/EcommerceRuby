@@ -6,7 +6,7 @@
   <br/>
   <h2>Articles --- <%= link_to 'My Articles',user_articles_path(current_user) %></h2> <%= link_to 'Create Article',new_article_path %>
   <% for article in @articles %>
-    <div><%= article.title%> ---  <%= link_to 'View',article_path(article) %></div>
+    <div><%= article.title%> ---  <%= link_to 'View',article_path(article)%>, <%= link_to 'Delete',article_path(article), data: { turbo_method: :delete } %></div>
   <% end %>
 <% else %>
   <%= button_to "Sign in", new_user_session_path,method: :get %> 
