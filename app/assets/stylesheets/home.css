@@ -1,0 +1,15 @@
+.imgthumbnail {
+  width: 100px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.cardLayout {
+  max-width: 50%;
+  margin-top: 20px;
+}
+
+.cardBodyLayout {
+  display: flex;
+  justify-content: space-between;
+}
