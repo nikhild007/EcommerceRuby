@@ -1,13 +1,7 @@
 <% if user_signed_in? %> 
- <div> 
-  <h3>Welcome <%= current_user.email.split("@")[0] %></h3>
-  <%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
-   </div> 
-  <br/>
-  <h2>Articles --- <%= link_to 'My Articles',user_articles_path(current_user) %></h2> <%= link_to 'Create Article',new_article_path %>
+  <h2>Articles  </h2> <%= link_to 'Create Article',new_article_path %>
+  <div class="text-danger">HEAD</div>
   <% for article in @articles %>
-    <div><%= article.title%> ---  <%= link_to 'View',article_path(article)%>, <%= link_to 'Delete',article_path(article), data: { turbo_method: :delete } %></div>
-  <% end %>
-<% else %>
-  <%= button_to "Sign in", new_user_session_path,method: :get %> 
+    <div><img src="<%= asset_url(article.image) %>" alt="Article Image" class="imgthumbnail" /><%= article.title  %> ---  <%= link_to 'View',article_path(article)%></div>
+  <% end %>  
 <% end %>

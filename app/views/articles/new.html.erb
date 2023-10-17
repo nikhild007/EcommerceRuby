@@ -11,6 +11,12 @@
     <%= form.text_area :body %>
   </div>
 
+   <div>
+    <%= form.label :image %><br>
+    <%= form.file_field :image %>
+  </div>
+
+
   <br/><br/>
     <%= @article.errors.full_messages_for(:body)[0]%>
   <div>

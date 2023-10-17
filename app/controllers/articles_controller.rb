@@ -11,9 +11,12 @@ class ArticlesController < ApplicationController
 
     def show
         @article = Article.find(params[:id])
+        
     end
 
     def create
+        fileName = params[:article][:image].original_filename
+        params[:article][:image] = fileName
         @article = current_user.articles.build(article_params)
         if @article.save
             redirect_to controller: 'home', action: 'index'
@@ -24,16 +27,16 @@ class ArticlesController < ApplicationController
 
     def destroy
         @article = Article.find(params[:id])
+        
         @article.comments.each do |comment|
             comment.destroy
         end
         @article.destroy
-
         redirect_to root_path, status: :see_other
     end
 
     private
         def article_params
-            params.require(:article).permit(:title,:body)
+            params.require(:article).permit(:title,:body,:image)
         end
 end

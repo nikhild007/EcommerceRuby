@@ -1,6 +1,8 @@
-    Title : <%= @article.title %>
+    <img src="<%= asset_url(@article.image) %>" alt="Article Image" class="imgthumbnail"/>
     <br/>
-    Description : <%= @article.body%>
+    <strong>Title</strong> : <%= @article.title %>
+    <br/>
+    <strong>Description</strong> : <%= @article.body%>
     <br/>
 
 
@@ -9,10 +11,10 @@
     Existing Comments : 
     <%= render @article.comments%>
 
-    <h2>Add a comment:</h2>
+    <strong>Add a comment:</strong> 
     <%= form_with(model: [@article, Comment.new(user: current_user)],url: article_comments_path(@article)) do |form| %>
     <p>
-        <%= form.label :body %><br>
+        <%= form.label 'Comment' %><br>
         <%= form.text_area :body %>
     </p>
     <p>

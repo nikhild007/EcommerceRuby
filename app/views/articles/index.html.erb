@@ -1,8 +1,12 @@
 Articles by me : 
 
+<% if @error %>
+    <p style="color:red;"><%= @error%></p>
+<%end%>
+
 <% if @articles.length > 0 %>
     <%for article in @articles%>
-        <div><%= article.title%> ---  <%= link_to 'View',article_path(article) %></div>
+        <div><%= article.title%> ---  <%= link_to 'View',article_path(article) %>,<%= link_to 'Delete',article_path(article), data: { turbo_method: :delete } %></div>
     <%end%>
 <%else%>
     <p>You have not posted any article yet !!</p>
