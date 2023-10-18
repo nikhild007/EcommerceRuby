@@ -1,4 +1,4 @@
-    <img src="<%= asset_url(@article.image) %>" alt="Article Image" class="imgthumbnail"/>
+     <%= image_tag @article.image, alt: 'Article Image', class: 'imgthumbnail' if @article.image.attached? %>
     <br/>
     <strong>Title</strong> : <%= @article.title %>
     <br/>
@@ -11,7 +11,6 @@
     Existing Comments : 
     <%= render @article.comments%>
 
-    <strong>Add a comment:</strong> 
     <%= form_with(model: [@article, Comment.new(user: current_user)],url: article_comments_path(@article)) do |form| %>
     <p>
         <%= form.label 'Comment' %><br>

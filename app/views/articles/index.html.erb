@@ -1,13 +1,28 @@
-Articles by me : 
+
 
 <% if @error %>
     <p style="color:red;"><%= @error%></p>
 <%end%>
 
 <% if @articles.length > 0 %>
+    <div>
+        <h4>My Articles</h4>
     <%for article in @articles%>
-        <div><%= article.title%> ---  <%= link_to 'View',article_path(article) %>,<%= link_to 'Delete',article_path(article), data: { turbo_method: :delete } %></div>
+        <div class="card cardLayout">
+        <h5 class="card-header"><%= article.title  %></h5>
+        <div class="card-body cardBodyLayout">
+            <div>
+            <p class="card-text"><%= article.body  %></p>
+            <%= link_to 'View',article_path(article)%>
+            <%= link_to 'Delete',article_path(article), data: { turbo_method: :delete } %>
+            </div>
+            <div>
+                <%= image_tag article.image, alt: 'Article Image', class: 'imgthumbnail' if article.image.attached? %>
+            </div>
+        </div>
+        </div>
     <%end%>
+    </div>
 <%else%>
     <p>You have not posted any article yet !!</p>
 <%end%>

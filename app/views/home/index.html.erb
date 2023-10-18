@@ -9,7 +9,7 @@
         <%= link_to 'View',article_path(article)%>
       </div>
       <div>
-        <%= image_tag article.image, alt: 'Article Image',class: 'imgthumbnail' %>
+        <%= image_tag article.image, alt: 'Article Image', class: 'imgthumbnail' if article.image.attached? %>
       </div>
     </div>
   </div>

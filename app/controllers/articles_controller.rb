@@ -15,8 +15,8 @@ class ArticlesController < ApplicationController
     end
 
     def create
-        fileName = params[:article][:image].original_filename
-        params[:article][:image] = fileName
+        # fileName = params[:article][:image].original_filename
+        # params[:article][:image] = fileName
         @article = current_user.articles.build(article_params)
         if @article.save
             redirect_to controller: 'home', action: 'index'
