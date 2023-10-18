@@ -4,6 +4,12 @@
   object-position: center;
 }
 
+.imgthumbnailView {
+  width: 600px;
+  object-fit: contain;
+  object-position: center;
+}
+
 .cardLayout {
   max-width: 50%;
   margin-top: 20px;
