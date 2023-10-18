@@ -3,4 +3,4 @@
 //= link_tree ../../javascript .js
 //= link_tree ../../../vendor/javascript .js
 
-//= link home.css
+//= link home.scss
